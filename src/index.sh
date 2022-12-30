@@ -6,14 +6,14 @@ shift
 get_title() {
 	FILE="$1"
 
-	PATTERN="<title>.*\(Autoconf\).*</title>"
+	PATTERN="<title>.*\(Autoconf Archive\).*</title>"
 
 	#Find pattern in file
 	grep -Eo "$PATTERN" "$FILE" | 
 		#Remove tag
 		sed 's/<[^>]*>//g' | \
 		#Remove '(automake)'
-		sed 's/(Autoconf)//g' | \
+		sed 's/(Autoconf Archive)//g' | \
 		#Remove trailing space
 		sed 's/[ ]*$//g' | \
 		#Replace '&amp' with '&'
@@ -23,17 +23,12 @@ get_title() {
 }
 
 get_type() {
-	FILE="$1"
-	PATTERN="The node you are looking for is at.*Limitations-of-.*\.html;Builtin
-	The node you are looking for is at;Macro"
+	FILE="$(basename $1)"
+	MACRO_PATTERN="^ax_"
 
-	echo "$PATTERN" | while read -r line; do
-		#echo "$line"
-		if grep -Eq "$(echo "$line" | cut -d ';' -f 1)" "$FILE"; then
-			echo "$line" | cut -d ';' -f 2
-			break
-		fi
-	done
+	if echo "$FILE" | grep -q "$MACRO_PATTERN"; then
+		echo "Macro"
+	fi
 }
 
 insert() {
