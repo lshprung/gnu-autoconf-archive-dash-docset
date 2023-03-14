@@ -10,7 +10,7 @@ INDEX_FILE      = $(RESOURCES_DIR)/docSet.dsidx
 ICON_FILE       = $(DOCSET_DIR)/icon.png
 ARCHIVE_FILE    = $(DOCSET_NAME).tgz
 
-MANUAL_VERSION = 2022.09.03
+MANUAL_VERSION = 2023.02.20
 MANUAL_URL  = https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-$(MANUAL_VERSION).tar.xz
 MANUAL_SRC = tmp/autoconf-archive-$(MANUAL_VERSION)
 MANUAL_SRC_MAKEFILE = $(MANUAL_SRC)/Makefile

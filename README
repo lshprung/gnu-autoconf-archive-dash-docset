@@ -12,5 +12,6 @@ Requirements:
 - any POSIX-compliant shell
 - curl
 - make
+- pup
 - sqlite3
 - texinfo
