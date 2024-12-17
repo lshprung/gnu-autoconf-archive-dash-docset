@@ -1,6 +1,6 @@
 SRC_ICON_FILE=$(SOURCE_DIR)/icon.png
 
-VERSION = 2023.02.20
+VERSION = 2024.10.16
 MANUAL_URL  = https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-$(VERSION).tar.xz
 MANUAL_SRC = tmp/autoconf-archive-$(VERSION)
 MANUAL_SRC_MAKEFILE = $(MANUAL_SRC)/Makefile
