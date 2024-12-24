@@ -20,6 +20,10 @@ $(DOCUMENTS_DIR): $(RESOURCES_DIR) $(MANUAL_FILE)
 	mkdir -p $@
 	cp -r $(MANUAL_FILE)/* $@
 
-$(INDEX_FILE): $(SOURCE_DIR)/src/index-pages.sh $(DOCUMENTS_DIR)
+#$(INDEX_FILE): $(SOURCE_DIR)/src/index-pages.sh $(DOCUMENTS_DIR)
+#	rm -f $@
+#	$(SOURCE_DIR)/src/index-pages.sh $@ $(DOCUMENTS_DIR)/*.html
+
+$(INDEX_FILE): $(SOURCE_DIR)/src/index-pages.py $(DOCUMENTS_DIR)
 	rm -f $@
-	$(SOURCE_DIR)/src/index-pages.sh $@ $(DOCUMENTS_DIR)/*.html
+	$(SOURCE_DIR)/src/index-pages.py $@ $(DOCUMENTS_DIR)/*.html
